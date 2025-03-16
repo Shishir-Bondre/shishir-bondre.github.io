@@ -3,245 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScaleUp.trading | Algorithmic Trading Platform</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="styles.css" rel="stylesheet">
+    <title>ScaleUp Trading</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-robot"></i> ScaleUp.trading
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#benefits">Benefits</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#workflow">Workflow</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#compliance">Compliance</a></li>
-                    <li class="nav-item"><a class="btn btn-outline-light ms-2" href="#contact">Get Started</a></li>
-                </ul>
-            </div>
-        </div>
+    <nav class="navbar">
+        <div class="logo">ScaleUp</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#compliance">Compliance</a></li>
+            <li><a href="#start" class="cta">Get Started</a></li>
+        </ul>
+        <div class="menu-toggle">☰</div>
     </nav>
 
     <header class="hero">
-        <div class="container text-center">
-            <h1 class="display-4 mb-4">Smart Algorithmic Trading Solutions</h1>
-            <p class="lead">Technology platform for automated market participation</p>
-            <div class="compliance-badge">
-                <i class="fas fa-shield-alt"></i>
-                <span>Partnered with SEBI-Registered Brokers</span>
-            </div>
-        </div>
+        <h1>Automate Your Trading with ScaleUp</h1>
+        <p>AI-powered, SESH-compliant automated trading solutions</p>
     </header>
 
     <section id="about" class="section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h2>What We Offer</h2>
-                    <p class="lead">Automated trading technology that adapts to your investment goals</p>
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-body">
-                                    <i class="fas fa-cogs"></i>
-                                    <h5>Dynamic Strategies</h5>
-                                    <p>Algorithms adjusting to market conditions</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-body">
-                                    <i class="fas fa-chart-line"></i>
-                                    <h5>Performance Analytics</h5>
-                                    <p>Real-time trade monitoring & reporting</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="graphic-box">
-                        <div class="graphic-item">
-                            <i class="fas fa-brain"></i>
-                            <span>AI Analysis</span>
-                        </div>
-                        <div class="graphic-item">
-                            <i class="fas fa-unlock-alt"></i>
-                            <span>Secure Execution</span>
-                        </div>
-                    </div>
-                </div>
+        <h2>About Us</h2>
+        <div class="content">
+            <h3>What We Do</h3>
+            <p>We provide SESH-compliant automated trading strategies. Whether you're new to investing or a seasoned trader, our algorithms handle everything from market analysis to trade execution.</p>
+            
+            <h3>Why Choose Us?</h3>
+            <ul class="benefits">
+                <li>Zero Hassle Account Setup</li>
+                <li>Non-Custodial Trading</li>
+                <li>Full Control Over Assets</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="how" class="section">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>1. Subscribe & Setup</h3>
+                <p>Choose your plan and set up automated payments</p>
+            </div>
+            <div class="step">
+                <h3>2. Broker Account</h3>
+                <p>Instant SESH-registered broker account creation</p>
+            </div>
+            <div class="step">
+                <h3>3. PGA Agreement</h3>
+                <p>Secure electronic Power of Attorney signing</p>
+            </div>
+            <div class="step">
+                <h3>4. Activate</h3>
+                <p>Launch your automated trading algorithm</p>
             </div>
         </div>
     </section>
 
-    <section id="benefits" class="section bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">Key Advantages</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-chess-king"></i>
-                            <h5>Strategy Automation</h5>
-                            <p>24/7 execution without manual intervention</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-sliders-h"></i>
-                            <h5>Customizable Plans</h5>
-                            <p>Tailored strategies for 1-30 day horizons</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-balance-scale"></i>
-                            <h5>Risk Management</h5>
-                            <p>Automated stop-loss protection</p>
-                        </div>
-                    </div>
-                </div>
+    <section id="pricing" class="section">
+        <h2>Pricing Plans</h2>
+        <div class="pricing-table">
+            <div class="plan">
+                <h3>Basic</h3>
+                <div class="price">₹599</div>
+                <ul>
+                    <li>15 Day Duration</li>
+                    <li>Up to 12% Fund Allocation</li>
+                </ul>
+            </div>
+            <div class="plan popular">
+                <h3>Standard</h3>
+                <div class="price">₹1199</div>
+                <ul>
+                    <li>30 Day Duration</li>
+                    <li>No Commission Fees</li>
+                </ul>
+            </div>
+            <div class="plan">
+                <h3>Premium</h3>
+                <div class="price">₹1599</div>
+                <ul>
+                    <li>45 Day Duration</li>
+                    <li>Up to 19% Allocation</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <section id="workflow" class="section">
-        <div class="container">
-            <h2 class="text-center mb-5">How It Works</h2>
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <h5>Set Parameters</h5>
-                        <p>Define investment amount & timeline</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <h5>Strategy Selection</h5>
-                        <p>Choose algorithm type</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <h5>Automated Trading</h5>
-                        <p>24/7 market execution</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <h5>Settlement</h5>
-                        <p>Review & withdraw funds</p>
-                    </div>
-                </div>
+    <section id="compliance" class="section">
+        <h2>Compliance & Security</h2>
+        <div class="compliance-grid">
+            <div class="card">
+                <h3>Regulatory Assurance</h3>
+                <ul>
+                    <li>SESH-registered brokers</li>
+                    <li>PGA compliant operations</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Transparency</h3>
+                <ul>
+                    <li>No hidden fees</li>
+                    <li>Real-time audit logs</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Security</h3>
+                <ul>
+                    <li>Bank-grade encryption</li>
+                    <li>Auto-position closing</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <section id="compliance" class="section bg-dark text-light">
-        <div class="container">
-            <h2 class="text-center mb-5">Security & Compliance</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="compliance-card">
-                        <i class="fas fa-lock"></i>
-                        <h5>Data Encryption</h5>
-                        <p>Bank-grade security protocols</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="compliance-card">
-                        <i class="fas fa-user-shield"></i>
-                        <h5>Account Control</h5>
-                        <p>You retain full ownership</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="compliance-card">
-                        <i class="fas fa-file-contract"></i>
-                        <h5>Transparent Agreements</h5>
-                        <p>Clear terms of service</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="contact-form">
-                <h3 class="text-center mb-4">Start Now</h3>
-                <form>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" placeholder="Full Name" required>
-                    </div>
-                    <div class="mb-3">
-                        <input type="email" class="form-control" placeholder="Email" required>
-                    </div>
-                    <div class="mb-3">
-                        <select class="form-select" required>
-                            <option value="">Investment Experience</option>
-                            <option>Beginner</option>
-                            <option>Intermediate</option>
-                            <option>Advanced</option>
-                        </select>
-                    </div>
-                    <button class="btn btn-primary w-100">Request Access</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer bg-dark text-light">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <h5>ScaleUp.trading</h5>
-                    <p class="text-muted small">Algorithmic Trading Technology</p>
-                </div>
-                <div class="col-md-4">
-                    <h6>Legal</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-muted small">Terms of Service</a></li>
-                        <li><a href="#" class="text-muted small">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h6>Contact</h6>
-                    <ul class="list-unstyled">
-                        <li class="text-muted small">support@scaleup.trading</li>
-                        <li class="text-muted small">Mon-Fri: 9AM-6PM</li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="small text-muted mb-0">© 2025 ScaleUp.trading</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="small text-muted mb-0">Not a SEBI-registered advisor</p>
-                </div>
-            </div>
+    <footer>
+        <div class="disclaimer">
+            <p>ScaleUp is a technology platform providing automated trading tools. All trades executed through SESH-registered brokers. Past performance not indicative of future results. Trading involves substantial risk.</p>
+            <p>© 2025 ScaleUp Trading | All Rights Reserved</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
