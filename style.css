@@ -1,0 +1,95 @@
+:root {
+  --primary: #1A237E;
+  --secondary: #00C853;
+  --dark: #212529;
+  --light: #f8f9fa;
+  --accent: #FFC107;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+}
+
+/* Platform Overview */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary), #283593);
+  color: white;
+  padding: 6rem 0;
+}
+
+.compliance-badge {
+  background: rgba(255,255,255,0.1);
+  border-radius: 30px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* Process Timeline */
+.process-timeline {
+  position: relative;
+  margin: 4rem 0;
+}
+
+.timeline-step {
+  position: relative;
+  padding: 2rem;
+  margin: 3rem 0;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.timeline-step::before {
+  content: "";
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background: var(--secondary);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Example Section */
+.example-card {
+  border-left: 4px solid var(--secondary);
+  transition: transform 0.3s ease;
+}
+
+.example-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Legal Section */
+.compliance-card {
+  background: rgba(26,35,126,0.03);
+  border: 1px solid rgba(26,35,126,0.1);
+  border-radius: 15px;
+}
+
+/* FAQ */
+.faq-item {
+  border-bottom: 1px solid #eee;
+  padding: 1.5rem 0;
+}
+
+/* Lead Capture */
+.lead-form {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+  .timeline-step::before {
+    left: -20px;
+  }
+  
+  .hero-section {
+    padding: 4rem 0;
+  }
+}
