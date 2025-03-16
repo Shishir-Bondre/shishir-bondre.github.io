@@ -93,3 +93,60 @@ body {
     padding: 4rem 0;
   }
 }
+
+
+/* Custom Styles */
+.logo-gradient {
+    background: linear-gradient(45deg, #00C853, #1A237E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.navbar {
+    padding: 1rem 0;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.hero-section {
+    padding: 120px 0 80px;
+    background: linear-gradient(135deg, #1A237E, #283593);
+}
+
+.section-py {
+    padding: 5rem 0;
+}
+
+.compliance-badge {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.footer {
+    background: #161c2d;
+}
+
+.social-links a {
+    transition: opacity 0.3s ease;
+}
+
+.social-links a:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .section-py {
+        padding: 3rem 0;
+    }
+    
+    .hero-section {
+        padding: 100px 0 60px;
+    }
+}
