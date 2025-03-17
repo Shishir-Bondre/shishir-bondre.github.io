@@ -4,91 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ScaleUp Trading</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">ScaleUp</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#how">How it works</a></li>
-            <li><a href#pricing">Pricing</a></li>
-            <li><a href="#compliance">Compliance</a></li>
-            <li><a href="#start" class="cta-button">Get Started</a></li>
-        </ul>
-        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Automate Your Trading with ScaleUp</h1>
-            <p>AI-powered, SESH-compliant automated trading solutions</p>
-            <a href="#start" class="cta-button">Start Free Trial</a>
-        </div>
+    <header class="bg-light py-3">
+        <nav class="container d-flex justify-content-between align-items-center">
+            <div class="fs-4 fw-bold text-primary">ScaleUp_</div>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#how-it-works">How it works</a></li>
+                <li class="nav-item"><a class="nav-link" href="#compliance">Compliance</a></li>
+                <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                <li class="nav-item"><a class="btn btn-primary" href="#get-started">Get started</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <section id="about" class="section">
-        <div class="container">
-            <h2>About Us</h2>
-            <div class="content-grid">
-                <div class="content-card">
-                    <h3>What We Do</h3>
-                    <p>We provide SESH-compliant automated trading strategies. Whether you're new to investing or a seasoned trader, our algorithms handle everything from market analysis to trade execution.</p>
+    <main class="container mt-5">
+        <section id="hero" class="text-center">
+            <h1><span class="text-primary">ScaleUp</span> is an easy and powerful way to <em>automate</em> your <span class="text-primary">trading</span>.</h1>
+            <img src="hero-image.svg" class="img-fluid mt-3" alt="Trading automation illustration">
+        </section>
+        <section id="about" class="mt-5 text-center">
+            <h2>About us</h2>
+            <p>We provide SEBI-compliant automated trading strategies...</p>
+        </section>
+        <section id="how-it-works" class="mt-5 text-center">
+            <h2>How it works?</h2>
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item">Subscribe & Set Up Payment</li>
+                <li class="list-group-item">Create/Link Demat Account</li>
+                <li class="list-group-item">Sign POA (Power of Attorney)</li>
+                <li class="list-group-item">Activate Algorithm</li>
+                <li class="list-group-item">Relax & Monitor</li>
+                <li class="list-group-item">Settlement & Closure</li>
+            </ol>
+        </section>
+        <section id="pricing" class="mt-5 text-center">
+            <h2>Pricing</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <h4>Basic</h4>
+                        <p class="fs-5 text-primary">₹599</p>
+                        <button class="btn btn-primary">Choose Plan</button>
+                    </div>
                 </div>
-                <div class="content-card">
-                    <h3>Why Choose Us?</h3>
-                    <ul class="benefits-list">
-                        <li><i class="fas fa-check-circle"></i> Zero Hassle Account Setup</li>
-                        <li><i class="fas fa-check-circle"></i> Non-Custodial Trading</li>
-                        <li><i class="fas fa-check-circle"></i> Full Portfolio Control</li>
-                        <li><i class="fas fa-check-circle"></i> SESH-Registered Partners</li>
-                    </ul>
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <h4>Standard</h4>
+                        <p class="fs-5 text-primary">₹1199</p>
+                        <button class="btn btn-primary">Choose Plan</button>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="how" class="section dark-bg">
-        <div class="container">
-            <h2>How It Works</h2>
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Subscribe & Setup</h3>
-                    <p>Choose your plan and set up automated payments</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Broker Account</h3>
-                    <p>Instant SESH-registered broker account creation</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>PGA Agreement</h3>
-                    <p>Secure electronic Power of Attorney signing</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Activate Algorithm</h3>
-                    <p>Launch your 24/7 automated trading system</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <h3>Automated Trading</h3>
-                    <p>Real-time trade execution and monitoring</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">6</div>
-                    <h3>Settlement</h3>
-                    <p>Auto-closing positions and fee rebates</p>
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <h4>Premium</h4>
+                        <p class="fs-5 text-primary">₹1599</p>
+                        <button class="btn btn-primary">Choose Plan</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Add remaining sections following similar structure -->
-
+        </section>
+        <section id="compliance" class="mt-5 text-center">
+            <h2>Compliance</h2>
+            <ul class="list-unstyled">
+                <li>✅ Regulatory Assurance</li>
+                <li>🌟 Transparency</li>
+                <li>🔒 Security</li>
+            </ul>
+        </section>
+    </main>
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>&copy; 2025 scaleup.trading | All Rights Reserved</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
