@@ -6,9 +6,12 @@
     <title>ScaleUp Trading</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="bg-light py-3">
+    <header class="bg-white shadow-sm py-3">
         <nav class="container d-flex justify-content-between align-items-center">
             <div class="fs-4 fw-bold text-primary">ScaleUp_</div>
             <ul class="nav">
@@ -20,26 +23,34 @@
             </ul>
         </nav>
     </header>
+    
     <main class="container mt-5">
         <section id="hero" class="text-center">
             <h1><span class="text-primary">ScaleUp</span> is an easy and powerful way to <em>automate</em> your <span class="text-primary">trading</span>.</h1>
             <img src="img.svg" class="img-fluid mt-3" alt="Trading automation illustration">
         </section>
+        
         <section id="about" class="mt-5 text-center">
             <h2>About us</h2>
-            <p>We provide SEBI-compliant automated trading strategies...</p>
+            <p>We provide SEBI-compliant automated trading strategies. Whether you're a beginner or an expert, our algorithms handle risk management and trade execution seamlessly.</p>
         </section>
-        <section id="how-it-works" class="mt-5 text-center">
-            <h2>How it works?</h2>
-            <ol class="list-group list-group-numbered">
-                <li class="list-group-item">Subscribe & Set Up Payment</li>
-                <li class="list-group-item">Create/Link Demat Account</li>
-                <li class="list-group-item">Sign POA (Power of Attorney)</li>
-                <li class="list-group-item">Activate Algorithm</li>
-                <li class="list-group-item">Relax & Monitor</li>
-                <li class="list-group-item">Settlement & Closure</li>
-            </ol>
+        
+        <section id="how-it-works" class="mt-5">
+            <h2 class="text-center">How it works?</h2>
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item">Subscribe & Set Up Payment</li>
+                        <li class="list-group-item">Create/Link Demat Account</li>
+                        <li class="list-group-item">Sign POA (Power of Attorney)</li>
+                        <li class="list-group-item">Activate Algorithm</li>
+                        <li class="list-group-item">Relax & Monitor</li>
+                        <li class="list-group-item">Settlement & Closure</li>
+                    </ol>
+                </div>
+            </div>
         </section>
+        
         <section id="pricing" class="mt-5 text-center">
             <h2>Pricing</h2>
             <div class="row">
@@ -47,6 +58,7 @@
                     <div class="card p-3">
                         <h4>Basic</h4>
                         <p class="fs-5 text-primary">₹599</p>
+                        <p class="small">Duration: 15 days | Fund size: ₹10k - ₹30k</p>
                         <button class="btn btn-primary">Choose Plan</button>
                     </div>
                 </div>
@@ -54,6 +66,7 @@
                     <div class="card p-3">
                         <h4>Standard</h4>
                         <p class="fs-5 text-primary">₹1199</p>
+                        <p class="small">Duration: 15 days | Fund size: ₹30k - ₹70k</p>
                         <button class="btn btn-primary">Choose Plan</button>
                     </div>
                 </div>
@@ -61,23 +74,27 @@
                     <div class="card p-3">
                         <h4>Premium</h4>
                         <p class="fs-5 text-primary">₹1599</p>
+                        <p class="small">Duration: 15 days | Fund size: ₹70k - ₹100k</p>
                         <button class="btn btn-primary">Choose Plan</button>
                     </div>
                 </div>
             </div>
         </section>
+        
         <section id="compliance" class="mt-5 text-center">
             <h2>Compliance</h2>
             <ul class="list-unstyled">
-                <li>✅ Regulatory Assurance</li>
-                <li>🌟 Transparency</li>
-                <li>🔒 Security</li>
+                <li>✅ Regulatory Assurance - SEBI registered brokers</li>
+                <li>🌟 Transparency - No hidden fees</li>
+                <li>🔒 Security - Bank-level encryption</li>
             </ul>
         </section>
     </main>
+    
     <footer class="bg-dark text-white text-center py-3 mt-5">
-        <p>&copy; 2025 scaleup.trading | All Rights Reserved</p>
+        <p>&copy; 2025 ScaleUp Trading | All Rights Reserved</p>
     </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
