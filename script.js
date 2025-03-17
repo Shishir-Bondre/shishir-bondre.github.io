@@ -46,3 +46,8 @@ function managePreviousAndNext() {
             prevBtn.setAttribute('disabled', 'true');
         }
 }
+
+
+function scrollToForm() {
+    document.getElementById("contact-form").scrollIntoView({ behavior: "smooth" });
+}
