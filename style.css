@@ -13,7 +13,6 @@
 }
 
 #about h3 {
-    font-style: italic;  /* Makes the questions italic */
     line-height: 1.6;  /* Default line-height for readability */
     letter-spacing: 0.5px;  /* Default letter-spacing */
 }
