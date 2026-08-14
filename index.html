@@ -1,279 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScaleUp.trading</title>
-    <link rel="icon" type="image/png" href="icon.svg">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bondre — A trading firm</title>
+<meta name="description" content="Bondre trades the financial markets with its own capital, using trading systems it builds and improves. A brand of Bondre Labs Private Limited." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preload" href="fonts/sora.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face{font-family:'Sora';font-style:normal;font-display:swap;font-weight:100 800;src:url('fonts/sora.woff2') format('woff2')}
+  @font-face{font-family:'Inter';font-style:normal;font-display:swap;font-weight:100 900;src:url('fonts/inter.woff2') format('woff2')}
+  :root{
+    --ink:#12233f; --ink2:#1b3358; --blue:#2563eb; --gold:#c9a227;
+    --slate:#5b6b82; --line:#e7ecf3; --bg:#ffffff; --soft:#f6f8fc;
+    --sora:'Sora',system-ui,sans-serif; --inter:'Inter',system-ui,sans-serif;
+    --wrap:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--inter);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:var(--sora);line-height:1.12;letter-spacing:-.01em}
+  .eyebrow{font-family:var(--sora);font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
 
+  .brand{font-family:var(--sora);font-weight:800;font-size:24px;letter-spacing:.2px;color:var(--ink)}
+  .brand .d{color:var(--gold)}
+  .brand.rev{color:#fff}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{font-size:15px;font-weight:500;color:var(--slate)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.btn,.nav-links a.btn:hover{color:#fff}
+  .btn{display:inline-block;font-family:var(--sora);font-weight:600;font-size:15px;padding:11px 20px;border-radius:10px;background:var(--blue);color:#fff;transition:transform .12s,background .15s}
+  .btn:hover{background:#1d4ed8}
+  .btn:active{transform:scale(.98)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn.ghost:hover{background:var(--soft)}
+  @media(max-width:720px){.nav-links a:not(.btn){display:none}}
+
+  .hero{position:relative;overflow:hidden;background:linear-gradient(165deg,var(--ink) 0%,var(--ink2) 100%);color:#fff}
+  .hero .wrap{padding-top:96px;padding-bottom:112px;position:relative;z-index:2}
+  .hero .eyebrow{color:#dcc46a}
+  .hero h1{font-size:clamp(34px,6vw,60px);font-weight:800;margin:18px 0 20px;max-width:16ch}
+  .hero p{font-size:clamp(17px,2.6vw,22px);color:#c3d0e6;max-width:52ch;margin-bottom:34px;font-family:var(--sora);font-weight:500}
+  .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .hero .btn.ghost{color:#fff;border-color:rgba(255,255,255,.25)}
+  .hero .btn.ghost:hover{background:rgba(255,255,255,.08)}
+  .hero svg.market{position:absolute;left:0;right:0;bottom:0;width:100%;height:230px;opacity:.36;z-index:1}
+  .hero .line{fill:none;stroke-width:2.5}
+  .hero .base{stroke:#7ea3e8;stroke-dasharray:1650;stroke-dashoffset:1650;animation:draw 2.5s ease-out .15s forwards}
+  .hero .pulse{stroke:#ecc971;stroke-width:4.5;stroke-dasharray:90 1500;stroke-dashoffset:90;filter:drop-shadow(0 0 7px rgba(236,201,113,.9));animation:flow 6.5s linear 0.7s infinite}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes flow{from{stroke-dashoffset:90}to{stroke-dashoffset:-1500}}
+
+  section{padding:78px 0}
+  .sec-head{max-width:640px;margin-bottom:44px}
+  .sec-head h2{font-size:clamp(26px,4vw,38px);font-weight:700;margin:12px 0 14px}
+  .sec-head p{color:var(--slate);font-size:17px}
+
+  #about .body{font-size:clamp(19px,2.6vw,24px);line-height:1.55;max-width:40ch;font-family:var(--sora);font-weight:500;color:var(--ink)}
+  #about .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+  #about .facts{display:flex;flex-direction:column;gap:20px}
+  #about .fact{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:var(--soft)}
+  #about .fact .k{font-family:var(--sora);font-weight:700;color:var(--ink);font-size:15px}
+  #about .fact .v{color:var(--slate);font-size:14.5px}
+  #about .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);margin-top:8px;flex:none}
+  @media(max-width:820px){#about .grid{grid-template-columns:1fr;gap:34px}}
+
+  /* Stats band */
+  .stats{background:linear-gradient(165deg,var(--ink),var(--ink2));color:#fff;padding:66px 0}
+  .statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .stat{text-align:center;padding:8px;opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+  .stat.in{opacity:1;transform:none}
+  .stat:nth-child(2){transition-delay:.08s}
+  .stat:nth-child(3){transition-delay:.16s}
+  .stat:nth-child(4){transition-delay:.24s}
+  .stat .num{font-family:var(--sora);font-weight:800;font-size:clamp(40px,6vw,58px);color:var(--gold);line-height:1;display:inline-block}
+  .stat .num.pop{animation:pop .45s ease}
+  @keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.14)}100%{transform:scale(1)}}
+  .stat .lab{margin-top:10px;font-size:14.5px;color:#c3d0e6;font-weight:500}
+  .markets-line{text-align:center;margin-top:38px;color:#aebfd8;font-size:15.5px}
+  .markets-line b{color:#fff;font-weight:600}
+  @media(max-width:640px){.statgrid{grid-template-columns:repeat(2,1fr);gap:34px 12px}}
+
+  #markets{background:var(--soft)}
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .tile{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 22px;transition:transform .15s,box-shadow .15s}
+  .tile:hover{transform:translateY(-3px);box-shadow:0 16px 30px -22px rgba(18,35,63,.4)}
+  .tile .ic{width:30px;height:30px;stroke:var(--blue);stroke-width:1.7;fill:none;margin-bottom:14px}
+  .tile h3{font-size:17px;font-weight:700;margin-bottom:6px}
+  .tile p{font-size:14px;color:var(--slate)}
+  .tiles + .note{margin-top:22px;color:var(--slate);font-size:15px}
+  .tiles + .note b{color:var(--ink);font-weight:600}
+  @media(max-width:820px){.tiles{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:460px){.tiles{grid-template-columns:1fr}}
+
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .pillar{padding:28px 26px;border:1px solid var(--line);border-radius:18px;background:#fff}
+  .pillar .n{font-family:var(--sora);font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.1em}
+  .pillar h3{font-size:20px;font-weight:700;margin:12px 0 10px}
+  .pillar p{color:var(--slate);font-size:15px}
+  @media(max-width:820px){.pillars{grid-template-columns:1fr}}
+
+  /* Animated cycle */
+  .cycle{position:relative;display:grid;grid-template-columns:repeat(4,1fr);margin-top:52px}
+  .ctrack{position:absolute;top:26px;left:12.5%;right:12.5%;height:2px;background:var(--line);z-index:0}
+  .cfill{position:absolute;top:26px;left:12.5%;height:2px;background:var(--gold);z-index:0;width:0;transition:width .6s ease}
+  .cstep{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:0 6px}
+  .cnode{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--sora);font-weight:700;font-size:18px;background:#fff;border:2px solid var(--line);color:var(--slate);transition:all .45s cubic-bezier(.4,0,.2,1)}
+  .clabel{font-family:var(--sora);font-weight:600;font-size:15px;color:var(--slate);transition:color .45s}
+  .csub{font-size:12.5px;color:#9aa7ba;max-width:16ch;transition:color .45s}
+  .cstep.active .cnode{background:var(--gold);border-color:var(--gold);color:#fff;transform:scale(1.14);box-shadow:0 10px 22px -6px rgba(201,162,39,.55)}
+  .cstep.active .clabel{color:var(--ink)}
+  .cstep.active .csub{color:var(--slate)}
+  @media(max-width:600px){
+    .cycle{grid-template-columns:1fr;gap:8px}
+    .ctrack,.cfill{display:none}
+    .cstep{flex-direction:row;text-align:left;gap:14px;padding:8px 0}
+    .csub{max-width:none}
+  }
+
+  #contact{background:linear-gradient(165deg,var(--ink),var(--ink2));color:#fff}
+  #contact .sec-head h2{color:#fff}
+  #contact .sec-head p{color:#c3d0e6}
+  #contact .panel{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+
+  footer{background:#0c1a30;color:#9fb0c8;font-size:13.5px}
+  footer .wrap{padding:52px 24px 40px}
+  footer .top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:26px;margin-bottom:22px}
+  footer .reg span{display:block;margin-top:4px}
+  footer .reg b{color:#cdd8e8;font-weight:600}
+  footer .disc{max-width:70ch;line-height:1.6;color:#8496af}
+  footer .copy{margin-top:20px;color:#6f819b}
+
+  /* Scroll reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pillars .reveal:nth-child(2){transition-delay:.1s}
+  .pillars .reveal:nth-child(3){transition-delay:.2s}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .hero .base{animation:none;stroke-dashoffset:0}
+    .hero .pulse{display:none}
+    .cstep{opacity:1}
+    .stat{opacity:1;transform:none;transition:none}
+  }
+  /* Mobile refinements */
+  @media(max-width:600px){
+    section{padding:54px 0}
+    .hero .wrap{padding-top:66px;padding-bottom:76px}
+    .sec-head{margin-bottom:30px}
+    .stats{padding:50px 0}
+    #about .grid{gap:26px}
+    .nav-in{height:60px}
+    footer .top{flex-direction:column;gap:20px}
+  }
+</style>
 </head>
 <body>
-    <header class="bg-white shadow-sm py-3">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand fs-2 fw-bold text-primary ps-3" href="#">ScaleUp_</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5 pe-5">
-                    <li class="nav-item me-4">
-                      <a class="nav-link active text-primary" aria-current="page" href="#about">About</a>
-                    </li>
-                    <li class="nav-item me-4">
-                      <a class="nav-link" href="#how-it-works">How it works</a>
-                    </li>
-                    <li class="nav-item me-4">
-                      <a class="nav-link" href="#pricing">Pricing</a>
-                    </li>
-                    <li class="nav-item me-4">
-                      <a class="nav-link" href="#compliance">Compliance</a>
-                    </li>
-                    <li class="nav-item me-4">
-                        <a class="btn btn-outline-primary fs-5" onclick="scrollToForm()">Get started</a>
-                    </li>
-                  </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <main class="container mt-5">
-        <section id="hero" class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 text-lg-start text-center">
-                    <h1 class="fw-normal">
-                        <span class="text-primary fw-bold display-3">ScaleUp</span>
-                        is an easy and powerful way to
-                        <strong class="fw-bold">automate</strong> your
-                        <span class="text-primary fw-bold display-3">trading</span>.
-                    </h1>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <img src="img.svg" class="img-fluid mt-3" alt="Trading automation illustration">
-                </div>
-            </div>
-        </section>
-        <section id="about" class="container py-5">
-            <div class="text-center mb-5">
-                <h2 class="display-6 fw-bold">About Us</h2>
-            </div>
-            <div class="row">
-                <!-- What We Do Section -->
-                <div class="col-12 col-md-6">
-                    <div class="shadow p-4 rounded h-100">
-                        <h3 class="fw-bold text-center display-7">What we do?</h3>
-                        <p>
-                            We provide SEBI-compliant automated trading strategies. Whether you’re new to investing or a seasoned trader,
-                            our algorithms handle everything: spotting opportunities, managing risks, and closing trades on time.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="shadow p-4 rounded h-100">
-                        <h3 class="fw-bold text-center display-7">Why choose us?</h3>
-                        <ul>
-                            <li><strong>Zero Hassle Setup:</strong> Don’t have a demat account? We’ll help you create one instantly with our SEBI-registered partner broker.</li>
-                            <li><strong>No Fund Handling:</strong> Your money stays in your account. We only execute trades, never touch your funds.</li>
-                            <li><strong>Total Control:</strong> Start or stop the algorithm anytime. Your portfolio, your rules.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#" class="brand">Bondre<span class="d">.</span></a>
+    <nav class="nav-links">
+      <a href="#about">What we do</a>
+      <a href="#markets">Markets</a>
+      <a href="#approach">Approach</a>
+      <a class="btn" href="https://forms.gle/AtabaPTAeeEgPWGk6" target="_blank" rel="noopener">Partner with us</a>
+    </nav>
+  </div>
+</header>
 
-
-        <section id="how-it-works" class="py-5">
-            <div class="container">
-                <h2 class="fs-2 fw-bold text-center mb-5">How It Works?</h2>
-
-                <div class="controls">
-                    <button class="btn-steps" onclick="previousStep()" id="prev-btn" disabled> Previous </button>
-                    <button class="btn-steps" onclick="nextStep()" id="next-btn"> Next </button>
-                </div>
-
-
-                <div class="steps-vertical" >
-                    <div class="step-vertical active">
-                        <div class="step-vertical-icon">
-                            <i class="fas fa-thumbs-up"></i>
-                        </div>
-                        <div class="step-vertical-content">
-                            <h4>Subscribe and Set up payment</h4>
-                            <p>Choose a plan that fits your goals. Link your UPI for hassle-free fee auto-debit.</p>
-                        </div>
-                    </div>
-                    <div class="step-vertical">
-                        <div class="step-vertical-icon">
-                            <i class="fa-solid fa-building-columns"></i>
-                        </div>
-                        <div class="step-vertical-content">
-                            <h4>Create/Link Demat Account</h4>
-                            <p>New to trading? We’ll create a demat account for you. Already have one? Link it securely in minutes.</p>
-                        </div>
-                    </div>
-                    <div class="step-vertical">
-                        <div class="step-vertical-icon">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </div>
-                        <div class="step-vertical-content">
-                            <h4> Sign POA (Power of Attorney) </h4>
-                            <p> E-sign a quick, secure POA to authorize trade execution. No fund access—we only place trades.</p>
-                        </div>
-                    </div>
-                    <div class="step-vertical">
-                        <div class="step-vertical-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <div class="step-vertical-content">
-                            <h4> Activate Algorithm </h4>
-                            <p> “Run Algorithm.” Our tech takes over, 24/7 </p>
-                        </div>
-                    </div>
-                    <div class="step-vertical">
-                        <div class="step-vertical-icon">
-                            <i class="fas fa-mug-hot"></i>
-                        </div>
-                        <div class="step-vertical-content">
-                            <h4> Relax & Monitor </h4>
-                            <p> Trades execute automatically. Track performance anytime. </p>
-                        </div>
-                    </div>
-                    <div class="step-vertical">
-                        <div class="step-vertical-icon">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div class="step-vertical-content">
-                            <h4> Settlement & Closure </h4>
-                            <p> Auto-Close Trades: All positions close at contract end. Fee Settlement: Fees debited via UPI mandate. Secure Revoke: API access ends; your account stays yours. </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <section id="pricing" class="mt-5 text-center">
-            <h2>Pricing</h2>
-            <div class="row justify-content-center py-5">
-                <div class="col-md-4 mb-4">
-                    <div class="card p-3 shadow-lg rounded">
-                        <h4>Basic</h4>
-                        <p class="fs-2 text-primary"> ₹299 </p>
-                        <p class="small"> <strong> Duration: </strong> 15 days </p>
-                        <p class="small"> <strong> Fund size: </strong> ₹ 10,000 to ₹ 29,999 </p>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary" onclick="scrollToForm()">Choose Plan</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card p-3 shadow-lg rounded offer-card">
-                        <h4> Standard </h4>
-                        <p class="fs-2 text-primary"> ₹799 </p>
-                        <p class="small"> <strong> Duration: </strong> 15 days </p>
-                        <p class="small"> <strong> Fund size: </strong> ₹ 30,000 to ₹ 69,999</p>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary" onclick="scrollToForm()">Choose Plan</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card p-3 shadow-lg rounded">
-                        <h4>Premium</h4>
-                        <p class="fs-2 text-primary"> ₹1199 </p>
-                        <p class="small"> <strong> Duration: </strong> 15 days </p>
-                        <p class="small"> <strong> Fund size: </strong> ₹ 69,999 to ₹ 1,00,000</p>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary" onclick="scrollToForm()">Choose Plan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <ul class="list-unstyled mt-4">
-                        <li><strong>On 15th day all the open positions will be closed and the account would be settled.</strong> </li>
-                        <li>*Prices are inclusive of GST only. <u><i> Brokerage and other transaction </i></u> costs exclusive.</li>
-                        <li>Customers will have to pay brokerage and transaction costs separately from their brokerage accounts.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="compliance" class="container py-5">
-            <div class="row">
-                <div class="col-md-6 mb-4">
-            <div class="card shadow p-4">
-                <h2 class="fw-bold text-primary mb-4">Compliance</h2>
-                <div class="mb-4">
-                    <h5> <i class="fa-solid fa-lock"></i> Regulatory Assurance</h5>
-                    <ul>
-                        <li>Executed via SEBI-registered brokers.</li>
-                        <li>Zero fund access (POA-compliant).</li>
-                    </ul>
-                </div>
-                <div class="mb-4">
-                    <h5><i class="fa-solid fa-eye"></i> Transparency</h5>
-                    <ul>
-                        <li>No hidden charges (fees disclosed upfront).</li>
-                        <li>Your money stays with you—we only execute trades.</li>
-                        <li>Audit-ready logs for all transactions.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h5><i class="fa-solid fa-shield-halved"></i>Security</h5>
-                    <ul>
-                        <li>Bank-level data encryption.</li>
-                        <li>RBI-compliant UPI mandates.</li>
-                        <li>Trades auto-close at contract end.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-                <div class="col-md-6 mb-4 card shadow p-4" id="contact-form">
-                <h2 class="fw-bold">Interested? Get in Touch!</h2>
-                <iframe src="https://forms.gle/JjwppfKSwKzwVDkd9" width="100%" height="100%"></iframe>
-            </div>
-            </div>
-        </section>
-    </main>
-
-    <footer id="footer" class="bg-dark text-white py-4">
-    <div class="container">
-        <!-- Disclaimer Section -->
-        <div class="row">
-            <div class="col-12 text-center">
-                <p class="fw-bold text-primary">
-                    Disclaimer
-                </p>
-                <p class="text-light">
-                    scaleup.trading is a technology platform providing algorithmic execution tools. We do not handle funds, guarantee returns, or provide investment advice. All trades are executed by SEBI-registered brokers. Past performance is not indicative of future results. Trading in securities markets involves risk.
-                </p>
-            </div>
-        </div>
-
-        <!-- Copyright Section -->
-        <div class="row">
-            <div class="col-12 text-center mt-3">
-                <p class="text-light">
-                    © 2025 scaleup.trading | All Rights Reserved
-                </p>
-            </div>
-        </div>
+<section class="hero" style="padding:0">
+  <div class="wrap">
+    <span class="eyebrow">Trading firm</span>
+    <h1>We trade the markets with our own money.</h1>
+    <p>Our own technology. Our own research. Markets around the world.</p>
+    <div class="cta-row">
+      <a class="btn" href="#about">See what we do</a>
+      <a class="btn ghost" href="https://forms.gle/AtabaPTAeeEgPWGk6" target="_blank" rel="noopener">Partner with us</a>
     </div>
+  </div>
+  <svg class="market" viewBox="0 0 1200 230" preserveAspectRatio="none" aria-hidden="true">
+    <polyline class="line base" points="0,190 90,150 180,172 270,120 360,140 450,86 540,110 630,60 720,92 810,44 900,70 990,30 1080,54 1200,18"/>
+    <polyline class="line pulse" points="0,190 90,150 180,172 270,120 360,140 450,86 540,110 630,60 720,92 810,44 900,70 990,30 1080,54 1200,18"/>
+  </svg>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:34px"><span class="eyebrow">What we do</span></div>
+    <div class="grid">
+      <p class="body">We trade in the financial markets using our own money. We build our own computer programs that buy and sell for us, and we keep improving them by studying how the markets move. We trade many things — like shares, gold, and oil — in India and around the world.</p>
+      <div class="facts">
+        <div class="fact reveal"><span class="dot"></span><div><div class="k">Our own capital</div><div class="v">We trade for ourselves. We don't handle anyone else's money.</div></div></div>
+        <div class="fact reveal"><span class="dot"></span><div><div class="k">Our own technology</div><div class="v">The programs that place our trades are built and run in-house.</div></div></div>
+        <div class="fact reveal"><span class="dot"></span><div><div class="k">Global reach</div><div class="v">We trade across markets and exchanges, in India and abroad.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats" id="stats">
+  <div class="wrap">
+    <div class="statgrid">
+      <div class="stat"><div class="num" data-target="7" data-suffix="+">0</div><div class="lab">Live trading strategies</div></div>
+      <div class="stat"><div class="num" data-target="5">0</div><div class="lab">Global markets</div></div>
+      <div class="stat"><div class="num" data-target="3">0</div><div class="lab">Commodities traded</div></div>
+      <div class="stat"><div class="num" data-target="4">0</div><div class="lab">Asset classes</div></div>
+    </div>
+    <p class="markets-line">Active across <b>India, the United States, Japan, Germany, and Singapore</b>.</p>
+  </div>
+</section>
+
+<section id="markets">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What we trade</span>
+      <h2>Many markets, one firm</h2>
+      <p>We trade a broad range of markets — so our strategies aren't tied to any single one.</p>
+    </div>
+    <div class="tiles">
+      <div class="tile reveal"><svg class="ic" viewBox="0 0 24 24"><path d="M4 18l5-6 4 3 6-8"/><path d="M4 4v16h16"/></svg><h3>Shares</h3><p>Company stocks on the exchanges.</p></div>
+      <div class="tile reveal"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9 10h6"/></svg><h3>Commodities</h3><p>Gold, oil and other goods — including physical.</p></div>
+      <div class="tile reveal"><svg class="ic" viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg><h3>Currencies</h3><p>Exchange-traded currency markets.</p></div>
+      <div class="tile reveal"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 14l3-3 2 2 3-4"/></svg><h3>Futures &amp; options</h3><p>Derivatives across major exchanges.</p></div>
+    </div>
+    <p class="note">Traded on our own account, across <b>major exchanges worldwide</b>.</p>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How we work</span>
+      <h2>Technology, research, and risk</h2>
+      <p>Three things sit behind every trade we make — and one cycle keeps us improving.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal"><div class="n">01</div><h3>Technology</h3><p>We build our own trading systems — software that spots opportunities and places trades automatically, without emotion.</p></div>
+      <div class="pillar reveal"><div class="n">02</div><h3>Research</h3><p>We study the markets with data and maths to find strategies that work — then test them and keep improving them.</p></div>
+      <div class="pillar reveal"><div class="n">03</div><h3>Risk</h3><p>We protect our capital first. Every position is sized and watched to keep risk under control.</p></div>
+    </div>
+
+    <div class="cycle" id="cycle" aria-label="Our continuous cycle: research, build, deploy, improve">
+      <div class="ctrack"></div>
+      <div class="cfill" id="cfill"></div>
+      <div class="cstep" data-i="0"><span class="cnode">1</span><span class="clabel">Research</span><span class="csub">Find an idea in the data</span></div>
+      <div class="cstep" data-i="1"><span class="cnode">2</span><span class="clabel">Build</span><span class="csub">Turn it into a program</span></div>
+      <div class="cstep" data-i="2"><span class="cnode">3</span><span class="clabel">Deploy</span><span class="csub">Trade it with our money</span></div>
+      <div class="cstep" data-i="3"><span class="cnode">4</span><span class="clabel">Improve</span><span class="csub">Learn, refine, repeat</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Work with us</span>
+      <h2>Partnerships</h2>
+      <p>We work with brokers, technology providers, and other firms. If that sounds like you, we'd like to hear from you.</p>
+    </div>
+    <div class="panel">
+      <div class="brand rev" style="font-size:30px">Bondre<span class="d">.</span></div>
+      <a class="btn" href="https://forms.gle/AtabaPTAeeEgPWGk6" target="_blank" rel="noopener">Start a conversation</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div class="brand rev" style="font-size:22px;margin-bottom:8px">Bondre<span class="d">.</span></div>
+        <div class="reg">A brand of <b>Bondre Labs Private Limited</b>
+          <span>CIN: U66190ME2026PTC476247</span>
+          <span>PAN: AAPCB0527M</span>
+        </div>
+      </div>
+      <div class="reg">
+        <b>Registered office</b>
+        <span>Dhone Colony, Ambika Nagar, Shivar,</span>
+        <span>MIDC Shivar, Akola – 444104,</span>
+        <span>Maharashtra, India</span>
+      </div>
+    </div>
+    <p class="disc">Bondre Labs Private Limited trades solely on its own account and does not accept, solicit, pool, manage, or invest funds belonging to clients or the public. Nothing on this website is investment advice, a research recommendation, or an offer of any product or service. Trading in financial markets involves risk.</p>
+    <p class="copy">© 2026 Bondre Labs Private Limited. All rights reserved.</p>
+  </div>
 </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Scroll reveal
+  var reveals = [].slice.call(document.querySelectorAll('.reveal'));
+  if(reduce){ reveals.forEach(function(el){el.classList.add('in');}); }
+  else if('IntersectionObserver' in window){
+    var ro = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target);} });
+    },{threshold:.15});
+    reveals.forEach(function(el){ ro.observe(el); });
+  } else { reveals.forEach(function(el){el.classList.add('in');}); }
+
+  // Cycle animation
+  var cycle = document.getElementById('cycle');
+  var fill = document.getElementById('cfill');
+  if(cycle){
+    var steps = [].slice.call(cycle.querySelectorAll('.cstep'));
+    if(reduce){ steps.forEach(function(s){s.classList.add('active');}); }
+    else {
+      var i = 0, timer = null;
+      function tick(){
+        steps.forEach(function(s,x){ s.classList.toggle('active', x===i); });
+        if(fill){ fill.style.width = (i/(steps.length-1)) * 75 + '%'; }
+        i = (i+1) % steps.length;
+      }
+      function start(){ if(timer) return; tick(); timer = setInterval(tick, 1300); }
+      function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+      if('IntersectionObserver' in window){
+        var co = new IntersectionObserver(function(es){
+          es.forEach(function(e){ e.isIntersecting ? start() : stop(); });
+        },{threshold:.4});
+        co.observe(cycle);
+      } else { start(); }
+    }
+  }
+
+  // Count-up stats — re-triggers each time the band scrolls into view
+  var stats = document.querySelector('.stats');
+  if(stats){
+    var nums = [].slice.call(stats.querySelectorAll('.num'));
+    var statEls = [].slice.call(stats.querySelectorAll('.stat'));
+    var counting = false;
+    function animateNums(){
+      if(counting) return; counting = true;
+      statEls.forEach(function(s){ s.classList.add('in'); });
+      nums.forEach(function(el, idx){
+        var target = +el.getAttribute('data-target');
+        var suffix = el.getAttribute('data-suffix') || '';
+        if(reduce){ el.textContent = target + suffix; return; }
+        setTimeout(function(){
+          var start = null, dur = 1500;
+          el.classList.remove('pop');
+          function step(ts){
+            if(!start) start = ts;
+            var p = Math.min((ts-start)/dur, 1);
+            var eased = 1 - Math.pow(1-p, 3);
+            el.textContent = Math.round(eased*target) + suffix;
+            if(p < 1){ requestAnimationFrame(step); }
+            else { el.classList.add('pop'); }
+          }
+          requestAnimationFrame(step);
+        }, idx*90);
+      });
+    }
+    function resetNums(){
+      counting = false;
+      statEls.forEach(function(s){ s.classList.remove('in'); });
+      nums.forEach(function(el){
+        var suffix = el.getAttribute('data-suffix') || '';
+        el.classList.remove('pop');
+        el.textContent = '0' + suffix;
+      });
+    }
+    if(reduce){ animateNums(); }
+    else if('IntersectionObserver' in window){
+      var so = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ animateNums(); } else { resetNums(); } });
+      },{threshold:.35});
+      so.observe(stats);
+    } else { animateNums(); }
+  }
+})();
+</script>
 </body>
 </html>
